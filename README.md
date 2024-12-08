@@ -5,6 +5,9 @@ Carpetas:
     - sprite_generator: FastAPI para generar las imágenes de los NFTs a través de un algoritmo de automata celular. El código de la API está en la carpeta "sprites". En "sprites/main.py" se encuentran los endpoints, en "sprites/sprites.py" el algoritmo.
     - contract: El contrato desarrollado para esta práctica.
 
+
+Este sección está desactualizada en cuanto a funcionalidades. Para una mayor descripción de la plataforma, es recomendable consultar "_BC_Practica_3.pdf_", en concreto la sección 7 (_Demostración del funcionamiento del sistema_) y la sección 12 (_Manual de usuario/desarrollador_).
+
 Uso:
 1. Desplegar el contrato a través de WalletConnect en Remix IDE, y copiar la dirección de despliegue:
 ![alt text](docs/image1.png)

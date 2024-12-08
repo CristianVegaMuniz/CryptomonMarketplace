@@ -1,0 +1,389 @@
+/* General styles */
+body {
+  margin: 0;
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #0d1117;
+  color: #c9d1d9;
+  overflow-x: hidden;
+}
+
+.App {
+  position: relative;
+  min-height: 100vh; /* Asegúrate de que ocupa toda la pantalla */
+  display: flex;
+  flex-direction: column;
+}
+
+.App::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 700px; /* Altura del fondo */
+  background: 
+  linear-gradient(rgba(0, 0, 0, 0.809), rgba(54, 4, 104, 0.296)), /* Semi-transparent white overlay */
+  url('./bkgnd1.jpg')no-repeat center; /* Background image */
+  background-size: cover; /* Ajusta según tus necesidades */
+  background-position: center bottom; /* Centrado en la parte baja */
+  z-index: -1;
+}
+
+/* Header styles */
+.App-header {
+  position: relative;
+  padding: 2rem 1.5rem;
+  color: #00ff9d;
+  text-align: center;
+  background: #0d1117;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.App-header img.logo {
+  width: 80px;
+  margin-bottom: 1rem;
+}
+
+/* Title and navigation styles */
+.App-header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #00ff9d;
+  text-shadow: 0 0 10px rgba(0, 255, 157, 0.7), 0 0 20px rgba(0, 255, 157, 0.5);
+}
+
+.App-header p {
+  margin: 0.5rem 0 1.5rem;
+  font-size: 1.1rem;
+  color: #c9d1d9;
+}
+
+.App-header nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.App-header nav a {
+  font-size: 1.5rem;
+  font-family: 'Courier New', Courier, monospace;
+  color: #00ff9d;
+  text-decoration: none;
+  text-transform: uppercase;
+  position: relative;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.App-header nav a:hover {
+  color: #00e6ff;
+  text-shadow: 0 0 10px rgba(0, 230, 255, 0.7), 0 0 20px rgba(0, 230, 255, 0.5);
+}
+
+.App-header nav a::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: #00ff9d;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.App-header nav a:hover::before {
+  visibility: visible;
+  width: 100%;
+}
+
+.App-header nav a:hover {
+  color: #00e6ff;
+  text-shadow: 0 0 10px rgba(0, 230, 255, 0.7), 0 0 20px rgba(0, 230, 255, 0.5);
+}
+
+.App-header nav a.active {
+  color: #00e6ff;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(0, 230, 255, 1), 0 0 20px rgba(0, 230, 255, 0.8);
+}
+
+/* Main Content */
+main {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem 1.5rem;
+  background: linear-gradient(120deg, rgba(61, 139, 9, 0.179), rgba(6, 34, 92, 0.202));
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.nft-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Cambiamos a auto-fill */
+  gap: 20px;
+  justify-content: center; /* Centra las tarjetas horizontalmente */
+  align-items: start; /* Alinea las tarjetas al inicio verticalmente */
+  margin: 20px auto; /* Centra el grid en la página */
+  max-width: 1200px; /* Limita el ancho máximo del grid */
+}
+
+.nft-card {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: start; /* Alinea los contenidos al principio de la tarjeta */
+  width: 250px; /* Tamaño fijo */
+  height: 400px; /* Tamaño fijo */
+  padding: 10px; /* Añadimos algo de padding */
+  background: 
+    linear-gradient(rgb(0, 0, 0), rgba(1, 31, 25, 0.659)), /* Semi-transparent white overlay */
+    url('cardbckgnd.png') no-repeat center; /* Background image */
+  background-size: 300%;
+  border: 2px solid rgba(0, 255, 157, 0.3);
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #0d1117;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nft-card img {
+  width: 100%;
+  height: 60%; /* Mantén la imagen en la parte superior */
+  object-fit: contain; /* Ajusta la imagen manteniendo el aspect ratio */
+  border-bottom: 2px solid rgba(0, 157, 255, 0.3);
+  margin-bottom: 10px; /* Espacio debajo de la imagen */
+}
+
+.nft-card p {
+  margin: 5px 0; /* Ajusta márgenes entre los textos */
+  font-size: 0.9rem;
+  color: #c9d1d9;
+  text-align: center; /* Centra el texto dentro de la tarjeta */
+}
+
+.nft-card p strong {
+  color: #00ff9d;
+}
+
+
+/* Contenedor de título y botones */
+.title-and-buttons {
+  position: relative;
+  padding: 2rem;
+  border: 3px solid #333; /* Recuadro negro */
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.6); /* Fondo translúcido para resaltar el texto */
+  z-index: 1; /* Asegura que el recuadro se quede por encima del fondo */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+}
+
+/* Fondo con mosaico de imágenes */
+.App-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('./1.png'); /* Asegúrate de tener la imagen del mosaico */
+  background-size: 700px 450px; /* Hacer las imágenes pequeñas */
+  z-index: 0;
+  filter: blur(0px);
+}
+
+/* Contenedor de título y botones */
+.title-and-buttons {
+  position: relative;
+  padding: 2rem;
+  border: 3px solid #333; /* Recuadro negro */
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.85); /* Fondo translúcido para resaltar el texto */
+  z-index: 1; /* Asegura que el recuadro se quede por encima del fondo */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+}
+
+
+
+.create-nft-form h2 {
+  margin-bottom: 1rem;
+}
+
+.create-nft-form input,
+.create-nft-form textarea {
+  width: 97%;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  border-radius: 10px;
+  background-color: #222;
+  color: white;
+  border: 2px solid rgba(0, 255, 157, 0.3);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.create-nft-form input:focus,
+.create-nft-form textarea:focus,
+.create-nft-form input:valid,
+.create-nft-form textarea:valid {
+  background-color: #1b1b1b; /* Fondo más oscuro */
+  color: #f1f1f1; /* Texto más blanco */
+  border: 2px solid rgba(0, 255, 157, 0.3)
+}
+.create-nft-form input:hover ,
+.create-nft-form textarea:hover ,
+.create-nft-form input:hover ,
+.create-nft-form textarea:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 20px rgba(0, 255, 157, 0.5);
+}
+
+.create-nft-form input[type="file"] {
+  border:  2px solid rgba(0, 255, 157, 0.3);
+  padding: 1rem;
+  background-color: #222;
+  transition: all 0.3s ease;
+}
+
+.create-nft-form input[type="file"]:focus {
+  background-color: #1b1b1b; /* Fondo más oscuro */
+  border: 2px solid #00e6e6; /* Borde más claro */
+}
+
+.create-nft-form button {
+  padding: 1.2rem 2.5rem;
+  border-radius: 8px;
+  background-color: #00b3b3;
+  color: white;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.create-nft-form button:hover {
+  background-color: #00e6e6;
+  box-shadow: 0 0 15px rgba(0, 230, 255, 0.7);
+}
+
+.create-nft-form input,
+.create-nft-form textarea,
+.create-nft-form button {
+  font-family: 'Courier New', Courier, monospace; /* Mismo estilo de fuente que Explore NFTs */
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #1b1b1b;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 400px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 4px 20px rgba(0, 255, 157, 0.5);
+}
+
+.modal-content button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  background-color: #00ff9d;
+  color: #0d1117;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal-content button:hover {
+  background-color: #00e6e6;
+}
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 15px 20px;
+  background-color: #444;
+  color: white;
+  border-radius: 5px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: slideIn 0.3s forwards, fadeOut 0.5s 3s forwards;
+}
+
+.notification.success {
+  background-color: #4caf50;
+}
+
+.notification.error {
+  background-color: #f44336;
+}
+
+.notification.info {
+  background-color: #2196f3;
+}
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Oscurece la pantalla */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.loading-content {
+  text-align: center; /* Centra el texto debajo de la imagen */
+}
+
+.loading-content img {
+  width: 550px; /* Ajusta el tamaño de la imagen */
+  height: 550px;
+  object-fit: contain; /* Asegura que mantenga la proporción */
+}
+
+.loading-content p {
+  margin-top: 15px;
+  color: white;
+  font-size: 18px;
+}

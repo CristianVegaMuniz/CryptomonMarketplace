@@ -1,0 +1,88 @@
+
+�� 
+\documentclass[a4paper,12pt]{article} % This defines  
+\usepackage[top = 2.5cm, bottom = 2.5cm, left = 2.5cm, right = 2.5cm]{geometry} 
+
+ 
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+ 
+\usepackage{graphicx} 
+ 
+\usepackage{setspace}
+\setlength{\parindent}{0in}
+ 
+\usepackage{float}
+ 
+\usepackage{fancyhdr}
+
+
+ \pagestyle{fancy}  
+
+\fancyhf{} 
+
+\lhead{\footnotesize BC: Tarea 3} 
+
+%\rhead works just like \lhead (you can also use \chead)
+\rhead{\footnotesize Nombre Apellido 1  Apellido 2 } %<---- Rellenar
+\rhead{\footnotesize Nombre Apellido 1  Apellido 2 } %<---- Rellenar
+ 
+\cfoot{\footnotesize \thepage} 
+
+ \begin{document}
+
+ \thispagestyle{empty}  
+
+\begin{tabular}{p{15.5cm}}  
+{\large \bf Tecnologías de Registro Distribuido y Blockchain} \\ Máster Inter-Universitario en Ciberseguridad (MUNICS)  
+ \\  Universidade da Coruña (UDC) y Universidade de Vigo (UVigo)\\ Curso 2024-2025  \\
+\hline    
+\\
+\end{tabular}  
+\vspace*{0.3cm}  
+
+\begin{center}  
+	{\Large \bf Tarea colaborativa 3} % <---- Don't forget to put in the right number
+	\vspace{2mm}
+	
+        % YOUR NAMES GO HERE
+	{\bf Nombre Apellido 1  Apellido 2,  Nombre Apellido 1  Apellido 2} % 
+		
+\end{center}  
+
+\vspace{0.4cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Plataforma DLT/blockchain elegida: \textit{Rellenar}}
+
+\subsection{Descripción}
+\subsubsection{Uso}
+\subsubsection{Gobernanza}
+\subsubsection{Tipo}
+\subsubsection{Protocolo de consenso}
+\subsubsection{Criptomoneda}
+\subsubsection{Ejecución de smart contracts}
+\subsubsection{Lenguaje de smart contracts}
+\subsubsection{Arquitectura (Ordenar-Ejecutar vs Ejecutar-Ordenar-Validar)}
+
+\subsection{Factores relevantes}
+\subsubsection{Escalabilidad}
+\subsubsection{Rendimiento}
+\subsubsection{Latencia}
+\subsubsection{Seguridad}
+\subsubsection{Descentralización}
+
+\subsection{Principales ventajas}
+
+\subsection{Principales inconvenientes}
+
+\subsection{Repo de código fuente}
+
+%\subsection{Comentarios adicionales} % si se considera relevante algún aspecto adicional
+
+\subsection{Referencias}
+\subsection{Esfuerzo/tiempo dedicado a la tarea} % por cada alumno
+\end{document}
+�

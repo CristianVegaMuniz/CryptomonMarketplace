@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  ipfs_node:
+    image: ipfs/go-ipfs
+    ports:
+      - "4001:4001"  # IPFS Swarm Port
+      - "5001:5001"  # IPFS API Port
+      - "8082:8080"  # IPFS Gateway Port
+    volumes:
+      - ./:/data/ipfs
+      - ./:/export 
+    command: ["daemon", "--migrate=true"]
+
+volumes:
+  ipfs_data:
+  exported:

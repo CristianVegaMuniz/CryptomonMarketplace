@@ -1,0 +1,24 @@
+services:
+  frontend:
+    build:
+      context: ./dapp_ipfs/
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"  # Puerto para el frontend
+    volumes:
+      - ./dapp_ipfs:/app  # Mapea el código fuente
+    environment:
+      - NODE_ENV=production
+
+  sprite_generator:
+    build:
+        context: sprite_generator/
+        dockerfile: Dockerfile
+    # volumes:
+    # - ./sprite_generator/generated_images:/opt/generated_sprites
+    ports:
+        - "8085:8080"
+    command: uvicorn sprites.main:app --reload --port 8080 --host 0.0.0.0
+
+include:
+  - docker_ipfs/docker-compose.yml

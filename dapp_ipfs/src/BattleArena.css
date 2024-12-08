@@ -1,0 +1,472 @@
+.nft-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Mantener el diseño actual */
+  gap: 20px;
+  justify-content: center; /* Centra las tarjetas horizontalmente */
+  align-items: start; /* Alinea las tarjetas al inicio verticalmente */
+  margin: 20px auto; /* Centra el grid en la página */
+  max-width: 1200px; /* Limita el ancho máximo del grid */
+}
+
+.nft-card {
+  background: 
+    linear-gradient(rgb(0, 0, 0), rgba(1, 31, 25, 0.659)), /* Semi-transparent overlay */
+    url('cardbckgnd.png') no-repeat center; /* Background image */
+  background-size: 300%;
+  border: 2px solid rgba(0, 255, 157, 0.3);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  transition: transform 0.2s, box-shadow 0.2s, border 0.2s; /* Añadido para el borde */
+}
+
+.nft-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.nft-card.selected {
+  border: 3px solid #28a745; /* Borde verde para la tarjeta seleccionada */
+  transform: scale(1.05); /* Resalta la tarjeta seleccionada */
+}
+
+.nft-card img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.nft-card h4 {
+  margin: 5px 0;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.nft-card .attributes {
+  font-size: 0.9em;
+  text-align: left;
+  width: 100%;
+  margin: 5px 0;
+
+}
+
+.nft-card button {
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  margin-top: 10px;
+}
+
+.nft-card button:hover {
+  background: linear-gradient(90deg, #2575fc, #6a11cb);
+}
+
+.ReactModal__Overlay {
+  position: fixed; /* Asegura que el modal se quede fijo en pantalla */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7); /* Fondo negro semi-transparente */
+  backdrop-filter: blur(5px); /* Opcional: desenfoque */
+  z-index: 1; /* Asegura que esté por encima de todo */
+  display: flex; /* Centrar el contenido del modal */
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background: linear-gradient(135deg, #1e1e2f, #2b2b3d); /* Fondo degradado oscuro */
+  color: #f0f0f0;
+  padding: 25px;
+  border-radius: 15px;
+  max-width: 700px;
+  width: 90%; /* Mejor respuesta en pantallas pequeñas */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  animation: slide-in 0.3s ease-out;
+}
+
+/* Animación de entrada */
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animación de entrada */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.modal h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.5em;
+  color: #00ff9d; /* Verde brillante */
+}
+
+.modal .nft-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 15px; /* Espaciado uniforme */
+  margin: 20px 0;
+}
+
+input[type="number"] {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+  background: #2e2e42;
+  color: #f0f0f0;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+button {
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+  background: linear-gradient(90deg, #2575fc, #6a11cb);
+  transform: scale(1.05);
+}
+
+button.cancel {
+  background: #dc3545;
+}
+
+button.cancel:hover {
+  background: #c82333;
+}
+
+.modal h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.modal .nft-grid {
+  gap: 15px; /* Espaciado más reducido para el modal */
+}
+
+input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  margin: 15px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+/* Botones dentro del modal */
+button {
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  margin-top: 10px;
+  width: 100%;
+}
+
+button:hover {
+  background: linear-gradient(90deg, #2575fc, #6a11cb);
+}
+
+button.cancel {
+  background: #dc3545;
+}
+
+button.cancel:hover {
+  background: #c82333;
+}
+
+
+.battle-modal {
+  background-size: 300%;
+  background: 
+  linear-gradient(rgb(0, 0, 0), rgba(1, 31, 25, 0.659)), /* Semi-transparent overlay */
+  url('cardbckgnd.png') no-repeat center; /* Background image */  
+  padding: 25px;
+  border-radius: 15px;
+  max-width: 900px; /* Ancho máximo */
+  width: 90%; /* Ajustable en pantallas más pequeñas */
+  height: auto; /* Ajusta la altura automáticamente */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Sombra para destacar */
+  animation: fade-in 0.3s ease-out;
+  z-index: 10000; /* Mayor que el overlay */
+}
+
+.battle-modal h2 {
+  text-align: center;
+  font-size: 1.8em;
+  margin-bottom: 15px;
+  color: #00ff9d;
+}
+
+.battle-modal .nft-container {
+  flex-grow: 1; /* Permite que este contenedor ocupe el espacio disponible */
+  overflow-y: auto; /* Habilita el scroll vertical */
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+.battle-modal .nft-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Tamaño mínimo ajustado */
+  gap: 10px; /* Espaciado más reducido */
+  justify-content: center; /* Centrar las tarjetas en el contenedor */
+}
+.battle-modal .nft-card {
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid rgba(0, 255, 157, 0.3);
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 110px;
+  transition: transform 0.2s, border 0.2s;
+}
+
+.battle-modal .nft-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 5px;
+}
+
+.battle-modal .nft-card p {
+  font-size: 0.9em;
+  margin: 5px 0;
+}
+
+.battle-modal .nft-card .attributes {
+  font-size: 0.8em; /* Texto más pequeño */
+  margin-top: 5px;
+  text-align: left; /* Alineación a la izquierda para los atributos */
+}
+
+.battle-modal .nft-card .attributes p {
+  margin: 2px 0; /* Espaciado reducido */
+}
+.battle-modal .nft-card {
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid rgba(0, 255, 157, 0.3);
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  box-sizing: border-box; /* Asegura que padding no aumente el tamaño */
+  width: 100%; /* Ajusta el ancho al contenedor */
+  max-width: 110px; /* Limita el ancho máximo de las tarjetas */
+  height: auto; /* Permite que se ajusten en altura */
+  transition: transform 0.2s, border 0.2s;
+}
+
+.battle-modal .nft-card.selected {
+  border: 3px solid #28a745; /* Resaltar tarjeta seleccionada */
+  transform: scale(1.05);
+}
+
+.battle-modal .nft-card {
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid rgba(0, 255, 157, 0.3);
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  transition: transform 0.2s, border 0.2s;
+}
+
+.battle-modal .nft-card.selected {
+  border: 3px solid #28a745; /* Verde cuando está seleccionado */
+  transform: scale(1.05);
+}
+
+.battle-modal input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+  background: #2e2e42;
+  color: #f0f0f0;
+}
+
+.battle-modal .actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center; /* Centrar los botones */
+}
+
+body.modal-open {
+  overflow: hidden; /* Evita el scroll cuando el modal está activo */
+}
+
+.battle-modal .actions button {
+  width: auto; /* Botones no ocupan todo el ancho */
+  padding: 10px 20px;
+  font-size: 1em;
+}
+
+.request-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+
+.request-card {
+  background: #3b0808;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+  width: 300px;
+  background-size: 300%;
+  background: 
+  linear-gradient(rgb(0, 0, 0), rgba(1, 31, 25, 0.659)), /* Semi-transparent overlay */
+  url('cardbckgnd.png') no-repeat center; /* Background image */
+  border: 2px solid rgba(0, 255, 157, 0.3);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.nft-battle {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  margin-bottom: 16px;
+}
+.nft-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.nft-details {
+  text-align: center;
+}
+
+.nft-details img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid #ddd;
+}
+
+.vs-icon {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ff4500;
+  margin: 0 8px;
+}
+
+.actions {
+  margin-top: 8px;
+}
+
+.actions button {
+  margin: 4px;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.actions .cancel {
+  background: #f44336;
+  color: white;
+}
+.battle-arena{
+  min-width: 550px; /* Tamaño mínimo que asegure espacio suficiente */
+  min-height: 150px; /* Ajusta según lo necesario */
+}
+.battle-arena nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Espaciado uniforme entre botones */
+  margin-bottom: 20px; /* Separación con el contenido debajo */
+}
+
+.battle-arena nav button {
+  font-size: 1.5rem;
+  font-family: 'Courier New', Courier, monospace;
+  color: #00ff9d;
+  background: none; /* Sin fondo adicional */
+  border: none; /* Sin bordes */
+  cursor: pointer;
+  text-decoration: none;
+  text-transform: uppercase;
+  position: relative;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.battle-arena nav button:hover {
+  color: #00e6ff;
+  text-shadow: 0 0 10px rgba(0, 230, 255, 0.7), 0 0 20px rgba(0, 230, 255, 0.5);
+}
+
+.battle-arena nav button::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: #00ff9d;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.battle-arena nav button:hover::before {
+  visibility: visible;
+  width: 100%;
+}
+
+.battle-arena nav button:hover {
+  color: #00e6ff;
+  text-shadow: 0 0 10px rgba(0, 230, 255, 0.7), 0 0 20px rgba(0, 230, 255, 0.5);
+}
+.battle-arena nav button.active {
+  color: #00e6ff;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(0, 230, 255, 1), 0 0 20px rgba(0, 230, 255, 0.8);
+}

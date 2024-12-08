@@ -80,23 +80,23 @@ contract Auctions {
     }
 
     function endAuction(uint256 _tokenId) external {
-    AuctionData storage auction = auctions[_tokenId];
-    require(block.timestamp > auction.auctionCloseTime, "Auction is still ongoing");
-    require(!auction.ended, "Auction already ended");
+        AuctionData storage auction = auctions[_tokenId];
+        require(block.timestamp > auction.auctionCloseTime, "Auction is still ongoing");
+        require(!auction.ended, "Auction already ended");
 
-    auction.ended = true;
+        auction.ended = true;
 
-    if (auction.topBidder != address(0)) {
-        auction.owner.transfer(auction.topBid);
-        nftMarket.safeTransferFrom(auction.owner, auction.topBidder, _tokenId);
-        nftMarket.removeTokenFromOwner(auction.owner, _tokenId);
-        nftMarket.setSalePrice(_tokenId, 0);
-        nftMarket.addTokenToOwner(auction.topBidder, _tokenId);
+        if (auction.topBidder != address(0)) {
+            auction.owner.transfer(auction.topBid);
+            nftMarket.safeTransferFrom(auction.owner, auction.topBidder, _tokenId);
+            nftMarket.removeTokenFromOwner(auction.owner, _tokenId);
+            nftMarket.setSalePrice(_tokenId, 0);
+            nftMarket.addTokenToOwner(auction.topBidder, _tokenId);
 
-        emit AuctionEnded(_tokenId, auction.topBidder, auction.topBid);
+            emit AuctionEnded(_tokenId, auction.topBidder, auction.topBid);
+        }
+        delete auctions[_tokenId];
     }
-    delete auctions[_tokenId];
-}
 
     function withdraw(uint256 _tokenId) external {
         AuctionData storage auction = auctions[_tokenId];

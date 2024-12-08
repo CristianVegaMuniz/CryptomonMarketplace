@@ -6,7 +6,7 @@ Carpetas:
     - contract: El contrato desarrollado para esta práctica.
 
 
-Este sección está desactualizada en cuanto a funcionalidades. Para una mayor descripción de la plataforma, es recomendable consultar "_BC_Practica_3.pdf_", en concreto la sección 7 (_Demostración del funcionamiento del sistema_) y la sección 12 (_Manual de usuario/desarrollador_).
+Este sección está desactualizada en cuanto a funcionalidades. Para una mayor descripción de la plataforma, es recomendable consultar "_BC_Practica_3.pdf_", en concreto la sección 7 (_Demostración del funcionamiento del sistema_) y la sección 12 (_Manual de usuario/desarrollador_). La funcionalidad de subastas ciegas no está implementada en el frontend.
 
 Uso:
 1. Desplegar el contrato a través de WalletConnect en Remix IDE, y copiar la dirección de despliegue:
